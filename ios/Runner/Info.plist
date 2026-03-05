@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is needed to capture images for processing.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo library access is needed to select images for processing.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Permission needed to save processed images to your photo library.</string>
 </dict>
 </plist>

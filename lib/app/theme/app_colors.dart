@@ -18,6 +18,7 @@ class AppColors {
   static const Color bgSecondary = Color(0xFF1A1A24);
   static const Color bgElevated = Color(0xFF22222E);
 
+
   // Text
   static const Color textPrimary = Color(0xFFFFFFFF);
   static const Color textSecondary = Color(0xFFA0A0A8);

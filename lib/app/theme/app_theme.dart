@@ -8,58 +8,57 @@ class AppTheme {
   AppTheme._();
 
   static ThemeData get dark => ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark,
-        colorScheme: const ColorScheme.dark(
-          primary: AppColors.burrowingOwl,
-          secondary: AppColors.greatHornedOwl,
-          surface: AppColors.bgSecondary,
-          error: AppColors.error,
-          onPrimary: Colors.white,
-          onSecondary: Colors.white,
-          onSurface: AppColors.textPrimary,
-          onError: Colors.white,
-        ),
-        scaffoldBackgroundColor: AppColors.bgPrimary,
-        textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: AppColors.elfOwl,
-          foregroundColor: AppColors.textPrimary,
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          centerTitle: false,
-          titleSpacing: 16,
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: AppColors.elfOwl,
-            statusBarIconBrightness: Brightness.light,
-            statusBarBrightness: Brightness.dark,
-          ),
-          titleTextStyle: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: AppColors.textPrimary,
-          ),
-        ),
-        floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: AppColors.burrowingOwl,
-          foregroundColor: Colors.white,
-          elevation: 4,
-          shape: CircleBorder(),
-        ),
-        cardTheme: CardThemeData(
-          color: AppColors.bgSecondary,
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppRadius.lg),
-          ),
-        ),
-        dividerTheme: const DividerThemeData(
-          color: AppColors.bgElevated,
-          thickness: 1,
-        ),
-        iconTheme: const IconThemeData(
-          color: AppColors.textSecondary,
-        ),
-      );
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      primary: AppColors.burrowingOwl,
+      secondary: AppColors.greatHornedOwl,
+      surface: AppColors.bgSecondary,
+      error: AppColors.error,
+      onPrimary: Colors.white,
+      onSecondary: Colors.white,
+      onSurface: AppColors.textPrimary,
+      onError: Colors.white,
+    ),
+    scaffoldBackgroundColor:
+        AppColors.bgSecondary, // #1A1A24 — matches .mockup background
+    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppColors.elfOwl,
+      foregroundColor: AppColors.textPrimary,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      centerTitle: false,
+      titleSpacing: 16,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: AppColors.elfOwl,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+      ),
+      titleTextStyle: TextStyle(
+        fontFamily: 'Inter',
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textPrimary,
+      ),
+    ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: AppColors.burrowingOwl,
+      foregroundColor: Colors.white,
+      elevation: 4,
+      shape: CircleBorder(),
+    ),
+    cardTheme: CardThemeData(
+      color: AppColors.bgSecondary,
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppRadius.lg),
+      ),
+    ),
+    dividerTheme: const DividerThemeData(
+      color: AppColors.bgElevated,
+      thickness: 1,
+    ),
+    iconTheme: const IconThemeData(color: AppColors.textSecondary),
+  );
 }

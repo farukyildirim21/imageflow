@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       // toolbarHeight: 0 collapses the toolbar to zero — only the status bar
       // area remains, which gets elfOwl background from AppBarTheme.
-      appBar: AppBar(toolbarHeight: 0),
+      appBar: AppBar(toolbarHeight: 0, elevation: 0),
       body: Obx(() {
         if (controller.isLoading.value && controller.history.isEmpty) {
           return const Center(
@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildTitle(controller),
+              _buildTitle(),
               Expanded(
                 child: EmptyStateWidget(onCapture: controller.goToCapture),
               ),
@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildTitle(controller),
+            _buildTitle(),
             Expanded(
               child: RefreshIndicator(
                 color: AppColors.burrowingOwl,
@@ -48,10 +48,10 @@ class HomeView extends StatelessWidget {
                 onRefresh: controller.loadHistory,
                 child: ListView.separated(
                   padding: const EdgeInsets.fromLTRB(
-                    AppSpacing.md,
+                    AppSpacing.lg, // 24 px — .mockup-body padding-left
                     0,
-                    AppSpacing.md,
-                    AppSpacing.xl,
+                    AppSpacing.lg, // 24 px — .mockup-body padding-right
+                    AppSpacing.lg, // 24 px — .mockup-body padding-bottom
                   ),
                   itemCount: controller.history.length,
                   separatorBuilder: (_, __) =>
@@ -77,34 +77,18 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  /// Renders the "ImageFlow" heading and optional loading spinner.
-  /// Matches .mockup-title: font-size 1rem / font-weight 600,
-  /// inside .mockup-body padding (space-md = 16 px).
-  Widget _buildTitle(HomeController controller) {
+  /// "ImageFlow" screen title.
+  /// Matches .mockup-title: 1rem / 600 / text-primary,
+  /// margin-bottom = space-md (16 px), inside .mockup-body padding (space-lg = 24 px).
+  Widget _buildTitle() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-        AppSpacing.md,
-        AppSpacing.md,
-        AppSpacing.md,
-        AppSpacing.md,
+        AppSpacing.lg, // 24 px — .mockup-body padding-left
+        AppSpacing.lg, // 24 px — .mockup-body padding-top
+        AppSpacing.lg, // 24 px — .mockup-body padding-right
+        AppSpacing.md, // 16 px — .mockup-title margin-bottom
       ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text('ImageFlow', style: AppTextStyles.titleSmall),
-          ),
-          Obx(() => controller.isLoading.value
-              ? const SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: AppColors.burrowingOwl,
-                  ),
-                )
-              : const SizedBox.shrink()),
-        ],
-      ),
+      child: Text('ImageFlow', style: AppTextStyles.titleSmall),
     );
   }
 }

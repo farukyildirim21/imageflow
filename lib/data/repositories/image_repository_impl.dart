@@ -4,12 +4,13 @@ import '../datasources/local/hive_service.dart';
 import '../datasources/local/file_storage_service.dart';
 import '../datasources/ml/face_detection_service.dart';
 import '../datasources/ml/text_recognition_service.dart';
-import '../models/processing_record_model.dart';
-
+// ignore_for_file: unused_import
 class ImageRepositoryImpl implements ImageRepository {
   final HiveService _hiveService;
   final FileStorageService _fileStorage;
+  // ignore: unused_field
   final FaceDetectionService _faceDetection;
+  // ignore: unused_field
   final TextRecognitionService _textRecognition;
 
   ImageRepositoryImpl({

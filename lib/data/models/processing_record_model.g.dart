@@ -22,13 +22,14 @@ class ProcessingRecordModelAdapter extends TypeAdapter<ProcessingRecordModel> {
       ..processedAt = fields[2] as DateTime
       ..resultPath = fields[3] as String
       ..originalPath = fields[4] as String?
-      ..fileSizeBytes = fields[5] as int;
+      ..fileSizeBytes = fields[5] as int
+      ..extractedText = fields[6] as String?;
   }
 
   @override
   void write(BinaryWriter writer, ProcessingRecordModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -40,7 +41,9 @@ class ProcessingRecordModelAdapter extends TypeAdapter<ProcessingRecordModel> {
       ..writeByte(4)
       ..write(obj.originalPath)
       ..writeByte(5)
-      ..write(obj.fileSizeBytes);
+      ..write(obj.fileSizeBytes)
+      ..writeByte(6)
+      ..write(obj.extractedText);
   }
 
   @override

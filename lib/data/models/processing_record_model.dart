@@ -23,6 +23,9 @@ class ProcessingRecordModel extends HiveObject {
   @HiveField(5)
   late int fileSizeBytes;
 
+  @HiveField(6)
+  String? extractedText;
+
   ProcessingRecord toEntity() => ProcessingRecord(
         id: id,
         type: type == 'face' ? ProcessingType.face : ProcessingType.document,
@@ -30,6 +33,7 @@ class ProcessingRecordModel extends HiveObject {
         resultPath: resultPath,
         originalPath: originalPath,
         fileSizeBytes: fileSizeBytes,
+        extractedText: extractedText,
       );
 
   static ProcessingRecordModel fromEntity(ProcessingRecord record) {
@@ -39,7 +43,8 @@ class ProcessingRecordModel extends HiveObject {
       ..processedAt = record.processedAt
       ..resultPath = record.resultPath
       ..originalPath = record.originalPath
-      ..fileSizeBytes = record.fileSizeBytes;
+      ..fileSizeBytes = record.fileSizeBytes
+      ..extractedText = record.extractedText;
     return model;
   }
 }

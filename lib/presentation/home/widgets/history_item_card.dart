@@ -47,7 +47,11 @@ class HistoryItemCard extends StatelessWidget {
             children: [
               GradientThumbnail(
                 type: record.type,
-                imagePath: record.resultPath,
+                // For face: show the processed PNG result.
+                // For document: resultPath is a PDF — show the original photo instead.
+                imagePath: record.type == ProcessingType.face
+                    ? record.resultPath
+                    : record.originalPath,
                 size: 32,
               ),
               const SizedBox(width: AppSpacing.md),

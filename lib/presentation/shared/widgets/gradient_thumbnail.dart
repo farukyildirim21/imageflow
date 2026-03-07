@@ -28,7 +28,13 @@ class GradientThumbnail extends StatelessWidget {
         width: size,
         height: size,
         child: imagePath != null && File(imagePath!).existsSync()
-            ? Image.file(File(imagePath!), fit: BoxFit.cover)
+            ? Image.file(
+                File(imagePath!),
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Container(
+                  decoration: BoxDecoration(gradient: gradient),
+                ),
+              )
             : Container(
                 decoration: BoxDecoration(gradient: gradient),
               ),

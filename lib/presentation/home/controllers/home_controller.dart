@@ -26,6 +26,9 @@ class HomeController extends GetxController {
     loadHistory();
   }
 
+  // Called by ResultController before navigating back to home.
+  void reloadHistory() => loadHistory();
+
   Future<void> loadHistory() async {
     isLoading.value = true;
     try {
